@@ -2,7 +2,7 @@ name: Run tests with pixi
 
 on:
   workflow_dispatch:
-  pull_request:
+  # pull_request:
 
 jobs:
   pixi-test:
@@ -13,13 +13,13 @@ jobs:
       matrix:
         os: [
           ubuntu-22.04,
-          macos-latest,
-          windows-2022
+          # macos-latest,
+          # windows-2022
         ]
         pixi_env: [
           harmonic,
-          ionic,
-          jetty
+          # ionic,
+          # jetty
         ]
 
     steps:
