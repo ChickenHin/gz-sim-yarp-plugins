@@ -1,15 +1,15 @@
 name: apt CI Workflow (Ubuntu 24)
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
-  pull_request:
-  schedule:
-  # * is a special character in YAML so you have to quote this string
-  # Execute a "nightly" build at 2 AM UTC
-  - cron:  '0 2 * * *'
+  # pull_request:
+  # schedule:
+  # # * is a special character in YAML so you have to quote this string
+  # # Execute a "nightly" build at 2 AM UTC
+  # - cron:  '0 2 * * *'
 
 jobs:
   build:
@@ -115,8 +115,8 @@ jobs:
         ctest -R "^CameraTest" -T Test -T Coverage --repeat until-pass:10 --output-on-failure -C ${{ matrix.build_type }} .
 
 
-    - name: Install
-      run: |
-        cd build
-        cmake --build . --config ${{ matrix.build_type }} --target install
+    # - name: Install
+    #   run: |
+    #     cd build
+    #     cmake --build . --config ${{ matrix.build_type }} --target install
 
